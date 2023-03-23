@@ -46,6 +46,17 @@ class _HomePageState extends State<HomePage> {
     // );
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "La Tiendita de Sonia",
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.person),
+          ),
+        ],
+      ),
       body: Center(
         child: FutureBuilder(
           future: getProduct(),
