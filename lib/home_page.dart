@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               //return Text(products.toString());
 
               return ListView.builder(
-                shrinkWrap: true,
+                //shrinkWrap: true,
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Text(products[index]);
