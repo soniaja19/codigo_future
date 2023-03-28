@@ -1,4 +1,5 @@
 import 'package:codigo_future/pages/profile_page.dart';
+import 'package:codigo_future/services/my_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,6 +9,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String name = "Mantequilla el último de los méxicanos";
+
+  MyService mandarina = MyService();
 
   @override
   void initState() {
@@ -67,17 +70,29 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: getProduct(),
+          future: mandarina.getUsers(),
           builder: (BuildContext context, AsyncSnapshot snap) {
             if (snap.hasData) {
-              List products = snap.data;
+              List<Map<String, dynamic>> userSList = snap.data;
               //return Text(products.toString());
 
               return ListView.builder(
                 //shrinkWrap: true,
-                itemCount: products.length,
+                itemCount: userSList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(products[index]);
+                  return ListTile(
+                    title: Text(
+                      userSList[index]["full name "],
+                    ),
+                    subtitle: Text(
+                      userSList[index]["email"],
+                    ),
+                    leading: CircleAvatar(
+                      child: Text(
+                        userSList[index]["full name "][0],
+                      ),
+                    ),
+                  );
                 },
               );
             }

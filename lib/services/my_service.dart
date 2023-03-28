@@ -12,4 +12,31 @@ class MyService {
       };
     });
   }
+
+  Future<List<Map<String, dynamic>>> getUsers() async {
+    return Future.delayed(const Duration(seconds: 5), () {
+      return [
+        {
+          "id": 1,
+          "full name ": "Juan Carlos Montes",
+          "email": "juanca@gmail.com",
+        },
+        {
+          "id": 2,
+          "full name ": "Martha Robles Arias",
+          "email": "marthaRobles@gmail.com",
+        },
+        {
+          "id": 3,
+          "full name ": "David Reyes Perez",
+          "email": "davidre@gmail.com",
+        },
+        {
+          "id": 4,
+          "full name ": "Susana Diaz Torres",
+          "email": "sdiaz@gmail.com",
+        },
+      ];
+    });
+  }
 }
